@@ -97,6 +97,21 @@ function appendOperation(operationType) {
     updateDisplay();
 }
 
+function negateNumber() {
+    let current = getLastAppended();
+    if (isValidOperation(current)) return;
+    
+    if (current.startsWith('-')) {
+        current = current.substring(1);
+    } else {
+        current = '-' + current;
+    }
+
+    expression[expression.length-1] = current;
+
+    updateDisplay();
+}
+
 function calculateExpression() {
     let resultText = document.getElementById('result-text');
 
@@ -137,9 +152,9 @@ function calculateExpression() {
                 } 
 
                 currentExpression[j] = result.toString();
-                currentExpression.splice(j-1, 1);
-                currentExpression.splice(j, 1);
-                
+                currentExpression.splice(j-1, 1); // Remove firstNum
+                currentExpression.splice(j, 1); // Remove secondNum
+
                 break;
             }
         }
