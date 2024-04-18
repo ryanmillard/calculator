@@ -9,7 +9,7 @@ function updateDisplay() {
 
     let operationSymbols = {
         'MOD': '%',
-        'DIV': '/',
+        'DIV': '÷',
         'MUL': 'X',
         'ADD': '+',
         'SUB': '-'
